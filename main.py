@@ -52,13 +52,7 @@ def show_stream(stream_name, input_stream):
 
 def main():
     while (VID_VEBCAM_STREAM.read()[0]):
-        frame = VID_VEBCAM_STREAM.read()[1]
-        cv2.imshow("avg", img_to_ascii._img_averrager(frame))
-        cv2.waitKey(1)
-
-        # print("ping")
         show_stream(VID_STREAM_OUTPUT_NAME, VID_VEBCAM_STREAM)
-
 
 
 if __name__ == '__main__':
