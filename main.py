@@ -1,7 +1,9 @@
 #FIXME: 20525 still not ready
 
+import img_to_ascii
 import keyboard
 import cv2
+import numpy as np
 
 """
 Чтобы не забыть, что нужно получить в итоге:
@@ -24,7 +26,7 @@ VID_STREAM_OUTPUT_NAME = 'Goblin'
 # выходной поток видео после всех преобразований
 VID_STREAM_OUTPUT_CONVERTED = None
 # размер выходного потока видео
-VID_STREAM_OUTPUT_SHAPE = (800, 450)
+VID_STREAM_OUTPUT_SHAPE = (480, 640)
 #
 # TEXT_COLOR = '#ffffff'
 #
@@ -48,10 +50,18 @@ def show_stream(stream_name, input_stream):
     # waitKey(0) - отразится 1 кадр; waitKey(1) - поток идет
     cv2.waitKey(1)
 
+def main():
+    while (VID_VEBCAM_STREAM.read()[0]):
+        frame = VID_VEBCAM_STREAM.read()[1]
+        cv2.imshow("avg", img_to_ascii._img_averrager(frame))
+        cv2.waitKey(1)
+
+        # print("ping")
+        show_stream(VID_STREAM_OUTPUT_NAME, VID_VEBCAM_STREAM)
+
+
 
 if __name__ == '__main__':
     print('[+] запуск из main.py')
 
-
-while(VID_VEBCAM_STREAM.read()[0]):
-    show_stream(VID_STREAM_OUTPUT_NAME, VID_VEBCAM_STREAM)
+    # main()
