@@ -3,4 +3,4 @@
 
 сырая версия
 
-/sample.jpg
+![sample.jpg](https://github.com/FD70/matrix_vision/blob/main/sample.jpg)
